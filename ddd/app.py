@@ -14,6 +14,8 @@ import orm
 import repository
 import services
 
+__NAME = "PSE-SWE Test Application"
+
 LOG = logging.getLogger(__name__)
 
 engine = create_engine(config.URI, echo=True)
@@ -74,4 +76,15 @@ async def allocate(order_line: DTO_OrderLine):
 async def test(request: Request):
     """returns the request json body"""
     return await request.json()
+
+
+@app.get("/")
+async def router_name() -> str:
+    return __NAME
+
+if __name__ == "__main__":
+    import os
+    import uvicorn
+    port = os.environ.get("PORT", 8000)
+    uvicorn.run(app, port=port)
 

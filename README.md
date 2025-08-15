@@ -26,8 +26,20 @@ pip install SQLAlchemy
 pip install requests
 ```
 
+or
+
+```bash
+conda create --name "pse-swe" python=3.11
+conda activate pse-swe
+pip install -r requirements.txt
+```
+
 ## Run the FastAPI app
 
 ```bash
 fastapi dev app.py
 ```
+
+When running the fastapi CLI the default port is 8000, which can be overwritten with the --port flag.
+
+Get Swagger docs with: <http://localhost:8000/docs>
